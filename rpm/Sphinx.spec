@@ -29,7 +29,9 @@ make build PYTHON=python3
 
 %install
 mkdir -p %{buildroot}%{_prefix}/lib/python3.6/site-packages
+mkdir -p %{buildroot}%{_prefix}/bin
 cp -r %{_builddir}/%{name}-%{version}/build/lib/sphinx %{buildroot}%{_prefix}/lib/python3.6/site-packages
+cp %{_builddir}/%{name}-%{version}/sphinx-* %{buildroot}%{_prefix}/bin/.
 
 %check
 # scons tests -j1
@@ -39,6 +41,7 @@ cp -r %{_builddir}/%{name}-%{version}/build/lib/sphinx %{buildroot}%{_prefix}/li
 
 # BUILDROOT is automatically prepended to files path
 %files
+%{_bindir}/sphinx-*
 %{_prefix}/lib/python3.6/site-packages/sphinx
 
 %clean
