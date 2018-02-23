@@ -28,9 +28,9 @@ It was originally created for the Python documentation, and it has excellent fac
 make build PYTHON=python3
 
 %install
-mkdir -p %{buildroot}%{_prefix}/lib/python3.6/site-packages
+mkdir -p %{buildroot}%{_prefix}/lib64/python3.6/site-packages
 mkdir -p %{buildroot}%{_prefix}/bin
-cp -r %{_builddir}/%{name}-%{version}/build/lib/sphinx %{buildroot}%{_prefix}/lib/python3.6/site-packages
+cp -r %{_builddir}/%{name}-%{version}/build/lib/sphinx %{buildroot}%{_prefix}/lib64/python3.6/site-packages
 cp %{_builddir}/%{name}-%{version}/sphinx-* %{buildroot}%{_prefix}/bin/.
 
 %check
@@ -42,7 +42,7 @@ cp %{_builddir}/%{name}-%{version}/sphinx-* %{buildroot}%{_prefix}/bin/.
 # BUILDROOT is automatically prepended to files path
 %files
 %{_bindir}/sphinx-*
-%{_prefix}/lib/python3.6/site-packages/sphinx
+%{_prefix}/lib64/python3.6/site-packages/sphinx
 
 %clean
 rm -rf $RPM_BUILD_ROOT
